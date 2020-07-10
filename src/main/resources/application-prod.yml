@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: '@activatedProperties@'
+server:
+  servlet:
+    context-path: /core-api
+maincode:
+  company: 000001
+  type: 100000

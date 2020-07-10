@@ -1,0 +1,15 @@
+server:
+  port: 8886
+datasource:
+  url: jdbc:mysql://localhost:3306/sr
+  username: root
+  password: Xoaiaholic1@
+  driver-class-name: com.mysql.cj.jdbc.Driver
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+maincode:
+  company: 000001
+  type: 100000

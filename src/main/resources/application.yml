@@ -1,0 +1,15 @@
+app:
+  security:
+    enabled: true
+    jwtSecret: '{cipher}AQBmrLDk1z9Dv2Iill/k6zbyzWrWKzccE9uKgMe6xwkoTdTpFoIAowcTaLTbcdUrCoCtMRuHFZijQVCqeh1aWtOovjJjrPobvJlVpJwTHJ7/4TpqAWwzy7FaZulXo1bRYZl2uemHqScXL+caupjCetqyfl1b14N3BZLQQVcdRitfz4wiH5K4vXB4olNLMp2XNipn3iLYJ+n6zWgmm3VgqzByIoAUBp4EIGXee3tFbjg+ncNwOzK2OCLOWAw7z59I140xhLWttjvXPUxYzRG9YawCDC3+mNwz3boop6PMzVKVh4uFwzgNuVWkGLXU1qxun4sxnWR3/qvrXLtftU7gmxlN7908VMFfxUZJj0yyGd1JlRXRdPozu+zAsae7yLcIXRhiYjdqaqPHhlFtuLk6WI1l'
+    accessTokenExpiration: 6000
+    refreshTokenExpiration: 36000
+spring:
+  profiles:
+    active: '@activatedProperties@'
+server:
+  servlet:
+    context-path: /core-api
+maincode:
+  company: 000001
+  type: 100000

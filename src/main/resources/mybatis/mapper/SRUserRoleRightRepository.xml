@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.du11.coreapi.repository.SRUserRoleRightRepository">
+    <resultMap id="BaseResultMap" type="com.du11.coreapi.entity.UserRoleRight">
+        <id column="EMPNO" jdbcType="VARCHAR" property="key.empno" javaType="java.lang.String" />
+        <id column="DV_C" jdbcType="VARCHAR" property="key.dvc" javaType="java.lang.String" />
+        <id column="RLE_RHG_ID" jdbcType="VARCHAR" property="key.rleRghId" />
+        <id column="APY_STRTDT" jdbcType="VARCHAR" property="key.apyStrtDt" />
+        <result column="APY_ENDDT" jdbcType="VARCHAR" property="apyEndDt" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        EMPNO, DV_C, RLE_RHG_ID, APY_STRTDT, APY_ENDDT
+    </sql>
+    <select id="findByEmpno" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from srmg_emp_rle_rgh_bas
+        where EMPNO = #{empno, jdbcType=VARCHAR}
+    </select>
+</mapper>

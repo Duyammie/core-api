@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.du11.coreapi.repository.RightRepsitory">
+    <resultMap id="BaseResultMap" type="com.du11.coreapi.entity.Right">
+        <id column="RGH_ID" jdbcType="VARCHAR" property="rghId" javaType="java.lang.String" />
+        <result column="RGH_NM" jdbcType="VARCHAR" property="rghNm" javaType="java.lang.String" />
+        <result column="VL_YN" jdbcType="VARCHAR" property="vlYn" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        RGH_ID, RGH_NM, VL_YN
+    </sql>
+    <select id="findByRightId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from srmg_emp_rgh
+        where RGH_ID = #{rightId, jdbcType=VARCHAR}
+    </select>
+
+    <select id="findAll"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from srmg_emp_rgh
+    </select>
+</mapper>

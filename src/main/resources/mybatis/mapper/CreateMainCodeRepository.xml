@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.du11.coreapi.repository.CreateMainCodeRepository">
+    <resultMap id="BaseResultMap" type="com.du11.coreapi.entity.Code">
+        <id column="CD_ID" jdbcType="VARCHAR" property="key.cdId" />
+        <id column="DTL_CD_ID" jdbcType="VARCHAR" property="key.dtlCdId" />
+        <result column="DTL_CD_NM" jdbcType="VARCHAR" property="dtlCdNm" />
+        <result column="RGR_ENO" jdbcType="VARCHAR" property="rgrEno" />
+        <result column="RG_DT" jdbcType="VARCHAR" property="rgDt" />
+        <result column="DL_DT" jdbcType="VARCHAR" property="dlDt" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        CD_ID, DTL_CD_ID, DTL_CD_NM, RGR_ENO, RG_DT, DL_DT
+    </sql>
+    <select id="findMainCode"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from rcbz_code_dtl_info
+        where CD_ID = DTL_CD_ID
+    </select>
+
+    <select id="findMainCodeById" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from rcbz_code_dtl_info
+        where CD_ID = DTL_CD_ID AND CD_ID = #{id, jdbcType=VARCHAR}
+    </select>
+
+    <insert id="createMainCode" parameterType="com.du11.coreapi.entity.Code" >
+     insert into rcbz_code_dtl_info(CD_ID,DTL_CD_ID,DTL_CD_NM,DL_DT)
+      values (#{code.key.cdId, jdbcType=VARCHAR},
+      #{code.key.cdId, jdbcType=VARCHAR},
+      #{code.dtlCdNm, jdbcType=VARCHAR},
+      #{code.dlDt, jdbcType=VARCHAR})
+    </insert>
+</mapper>

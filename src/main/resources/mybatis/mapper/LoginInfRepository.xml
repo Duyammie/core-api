@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.du11.coreapi.repository.LoginInfRepository">
+    <resultMap id="BaseResultMap" type="com.du11.coreapi.entity.LoginInf">
+        <id column="EMPNO" jdbcType="VARCHAR" property="empno" javaType="String" />
+        <result column="PW" jdbcType="VARCHAR" property="pw" javaType="String" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        EMPNO, PW
+    </sql>
+    <select id="findByEmpno" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from srmg_login_inf
+        where EMPNO = #{empno, jdbcType=VARCHAR}
+    </select>
+</mapper>
